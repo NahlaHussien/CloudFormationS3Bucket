@@ -103,7 +103,7 @@ jobs:
       - run:
           name: Execute bucket.yml - Create Cloudformation Stack
           command: |
-            aws configure AKIA4JMTGJ74N3V77K7S >
+            aws configure > AKIA4JMTGJ74N3V77K7S >
             3zKT5sHKL9oKipBpx5t7bxUvPB4PUp2nDSVtIK8d >
             --region us-east-1 >
             json
@@ -124,7 +124,7 @@ jobs:
       - run:
           name: Fetch and save the old pipeline ID (bucket name) responsible for the last release.
           command: |
-            aws configure AKIA4JMTGJ74N3V77K7S >
+            aws configure > AKIA4JMTGJ74N3V77K7S >
             3zKT5sHKL9oKipBpx5t7bxUvPB4PUp2nDSVtIK8d >
             --region us-east-1 >
             json          
@@ -146,7 +146,7 @@ jobs:
       - run:
           name: Execute cloudfront.yml
           command: |
-            aws configure AKIA4JMTGJ74N3V77K7S >
+            aws configure > AKIA4JMTGJ74N3V77K7S >
             3zKT5sHKL9oKipBpx5t7bxUvPB4PUp2nDSVtIK8d >
             --region us-east-1 >
             json          
