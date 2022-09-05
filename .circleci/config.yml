@@ -103,6 +103,10 @@ jobs:
       - run:
           name: Execute bucket.yml - Create Cloudformation Stack
           command: |
+            aws configure AKIA4JMTGJ74N3V77K7S \
+            3zKT5sHKL9oKipBpx5t7bxUvPB4PUp2nDSVtIK8d \
+            --region us-east-1
+            json
             aws cloudformation deploy \
             --template-file bucket.yml \
             --stack-name stack-create-bucket-${CIRCLE_WORKFLOW_ID:0:7} \
@@ -120,6 +124,10 @@ jobs:
       - run:
           name: Fetch and save the old pipeline ID (bucket name) responsible for the last release.
           command: |
+            aws configure AKIA4JMTGJ74N3V77K7S \
+            3zKT5sHKL9oKipBpx5t7bxUvPB4PUp2nDSVtIK8d \
+            --region us-east-1
+            json          
             aws cloudformation \
             list-exports --query "Exports[?Name==\`PipelineID\`].Value" \
             --no-paginate --output text > ~/textfile.txt --region us-east-1
@@ -138,6 +146,10 @@ jobs:
       - run:
           name: Execute cloudfront.yml
           command: |
+            aws configure AKIA4JMTGJ74N3V77K7S \
+            3zKT5sHKL9oKipBpx5t7bxUvPB4PUp2nDSVtIK8d \
+            --region us-east-1
+            json          
             aws cloudformation deploy \
             --template-file cloudfront.yml \
             --stack-name production-distro \
